@@ -18,7 +18,7 @@ jobs:
         uses: imehedi/actions-awscli-v2@latest
         with:
           args: "lambda update-function-code \
-            --function-name arn:aws:arn:aws:lambda:eu-central-1:559089787336:function:lambdamonkfunc \
+            --function-name arn:aws:lambda:eu-central-1:559089787336:function:lambdamonkfunc \
             --zip-file fileb://code.zip"
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
