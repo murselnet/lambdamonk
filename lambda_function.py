@@ -3,6 +3,15 @@ sys.path.insert(0, 'paketler')
 
 
 
+
+
+from mangum import Mangum
+from main import app  # main.py dosyasındaki FastAPI/Flask 'app' nesnesini import ediyoruz
+
+handler = Mangum(app)
+
+
+
 """
 import requests
 
@@ -16,6 +25,7 @@ def lambda_handler(event, context):
 
 
 
+"""
 import json
 
 def lambda_handler(event, context):
@@ -24,4 +34,4 @@ def lambda_handler(event, context):
         'statusCode': 200,
         'body': json.dumps('Hello from Lambda! From MRS MURSEL GitHub Actions!')
     }
-
+"""

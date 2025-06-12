@@ -28,6 +28,18 @@ https://aistudio.google.com/app/prompts/15IJW6MOQnDpaOgbWOgJ1gRu813acMh8J
 
 
 
+
+PI Gateway'e bir HTTP isteği gelir.
+API Gateway, bu isteği bir Lambda olayına (event objesi) dönüştürerek lambda_function.py dosyanızdaki handler fonksiyonunu tetikler.
+lambda_function.py içindeki Mangum(app) tarafından oluşturulan handler, bu Lambda olayını alır.
+Mangum, Lambda olayını FastAPI/Flask uygulamanızın (main.py içindeki app) anlayabileceği bir ASGI (FastAPI için) veya WSGI (Flask için) isteğine dönüştürür.
+FastAPI/Flask uygulamanız bu isteği işler ve bir yanıt üretir (örneğin, @app.get("/") rotasındaki fonksiyon çalışır).
+Mangum, FastAPI/Flask uygulamanızın ürettiği bu yanıtı alır ve API Gateway'in beklediği Lambda yanıt formatına (genellikle {'statusCode': 200, 'headers': {...}, 'body': '...'} şeklinde bir JSON) dönüştürür.
+Bu yanıt API Gateway'e geri döner ve oradan da istemciye HTTP yanıtı olarak gönderilir.
+
+
+
+
 ********************************************************
 
 pip freeze > requirements.txt 
