@@ -1,0 +1,38 @@
+# paketler klasörü olursa lambda_function.py dosya başı aklenecek
+import sys
+sys.path.insert(0, 'paketler')
+
+
+
+pip freeze > requirements.txt 
+
+mkdir paketler
+
+pip install -r requirements.txt -t ./paketler --platform manylinux2014_x86_64 --python-version 3.11 --only-binary=:all:
+
+
+
+# eğer kendim zip oluşturusam
+cd lambda_projem
+zip -r9 lambda_paketim.zip lambda_function.py paketler/   # >>> dikkat > yüklenecekler bu zip e eklenecek
+cd ..
+
+Zip dosyasının içinde lambda_function.py ve diğer dosyalarınız kök dizinde olmalıdır, bir üst klasörün içinde değil.
+
+Kütüphanelerinizin Lambda'nın çalıştığı Amazon Linux 2 ortamıyla uyumlu olması 
+kritik öneme sahiptir. 
+--platform manylinux2014_x86_64 
+parametresi bu konuda yardımcı olur.
+
+https://aistudio.google.com/app/prompts/15IJW6MOQnDpaOgbWOgJ1gRu813acMh8J
+
+
+
+********************************************************
+
+pip freeze > requirements.txt 
+
+pip install -r requirements.txt -t ./paketler --platform manylinux2014_x86_64 --python-version 3.11 --only-binary=:all:
+
+git add > git commit > git push
+
