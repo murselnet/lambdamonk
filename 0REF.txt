@@ -47,6 +47,14 @@ Bu yanıt API Gateway'e geri döner ve oradan da istemciye HTTP yanıtı olarak 
 
 
 
+
+⚡️Commands from the video:
+1. pip install -t dependencies -r requirements.txt
+2. (cd dependencies; zip ../aws_lambda_artifact.zip -r .)
+    powershell > Compress-Archive -Path .\* -DestinationPath ..\aws_lambda_artifact.zip -Force
+3. zip aws_lambda_artifact.zip -u main.py
+
+
 ********************************************************
 
 pip freeze > requirements.txt 
