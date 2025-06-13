@@ -1,10 +1,32 @@
-import sys
-sys.path.insert(0, 'paketler')
+#import sys
+#sys.path.insert(0, 'paketler')
+
+
+
+
+from mangum import Mangum
+#from main import app  # main.py dosyasındaki FastAPI/Flask 'app' nesnesini import ediyoruz
+from fastapi import FastAPI
+
+app = FastAPI() # Bu 'app' nesnesi Mangum tarafından kullanılacak
+handler = Mangum(app)
+
+@app.get("/")
+async def read_root():
+    return {"Hello": "World from FastAPI"}
 
 
 
 
 
+
+
+
+
+
+
+
+"""
 # Şimdi Mangum, FastAPI (main.py üzerinden) ve diğerlerini import edebilirsiniz
 try:
     from mangum import Mangum
@@ -19,20 +41,7 @@ except ImportError as e:
     raise e # Orijinal hatayı tekrar yükseltin ki Lambda bunu raporlasın
 
 handler = Mangum(app)
-
-
-
-
-
-
-
 """
-from mangum import Mangum
-from main import app  # main.py dosyasındaki FastAPI/Flask 'app' nesnesini import ediyoruz
-
-handler = Mangum(app)
-"""
-
 
 """
 import requests

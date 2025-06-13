@@ -4,6 +4,13 @@ sys.path.insert(0, 'paketler')
 
 
 
+
+lokalde terminalde çalıştırma konuda
+uvicorn lambda_function:app --reload
+
+pip install mangum reload uvicorn mangum
+
+
 pip freeze > requirements.txt 
 
 mkdir paketler
@@ -43,6 +50,8 @@ Bu yanıt API Gateway'e geri döner ve oradan da istemciye HTTP yanıtı olarak 
 ********************************************************
 
 pip freeze > requirements.txt 
+
+paketler klasör için temizle
 
 pip install -r requirements.txt -t ./paketler --platform manylinux2014_x86_64 --python-version 3.11 --only-binary=:all:
 
